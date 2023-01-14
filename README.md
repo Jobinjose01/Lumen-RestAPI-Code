@@ -38,7 +38,7 @@ users are `john`, `jane`, `ronald`,`sam`,`susie`
 
 All users default password is  `123456`
 
-## API Access URL
+## Access URL
 
 [API Documentation](http://localhost:81/api/documentation)
 
@@ -51,10 +51,13 @@ DB   : splitwise
 User : root
 Pass : root
 
+## PHPUnit Test
+
+`docker-compose run --rm php vendor/bin/phpunit`
 
 ## Front End
 
-Front end of the appliation is not developed  , but the API documentation is done with Swagger Package so you can try out all the from that.
+Front end of the appliation is not developed  , but the API documentation is done with Swagger Package, so you can try out all from that.
 
 ## Access The CLI
 

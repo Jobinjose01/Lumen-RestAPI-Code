@@ -46,7 +46,7 @@ class UserGroupsController extends Controller
      *         )
      *     ),
      *      @OA\Response(
-     *         response=201,
+     *         response=200,
      *         description="successful operation",
      *     ),
      *     @OA\Response(
@@ -69,7 +69,7 @@ class UserGroupsController extends Controller
              
             $user = $this->usergroupService->store($request->all());
             
-            $response_code = 201;
+            $response_code = 200;
             $response = ResponseHelper::successResponse($user, $response_code, "User Assigned to the Group Successfully!");
         }
        
