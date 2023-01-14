@@ -1,0 +1,323 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Splitwise Backend API",
+        "version": "0.1"
+    },
+    "paths": {
+        "/api/expense/create": {
+            "post": {
+                "tags": [
+                    "Expenses"
+                ],
+                "summary": "Create an Expense",
+                "description": "Expense can be created with description , group_id ,  payer_id and amount",
+                "operationId": "addExpense",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "description": {
+                                        "type": "string"
+                                    },
+                                    "group_id": {
+                                        "type": "int"
+                                    },
+                                    "payer_id": {
+                                        "type": "int"
+                                    },
+                                    "amount": {
+                                        "type": "number"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "description": "Friday Night Party",
+                                    "group_id": "1",
+                                    "payer_id": "1",
+                                    "amount": "1500.00"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "successful operation"
+                    },
+                    "422": {
+                        "description": "Failed operation user already exist"
+                    }
+                }
+            }
+        },
+        "/api/expense/{group_id}": {
+            "get": {
+                "tags": [
+                    "Expenses"
+                ],
+                "summary": "Get a Group Expense Details",
+                "description": "Get group expense details",
+                "operationId": "FetchGroupExp",
+                "parameters": [
+                    {
+                        "name": "group_id",
+                        "in": "path",
+                        "description": "Fetch the Group with its id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            }
+        },
+        "/api/expense/users/{user_id}": {
+            "get": {
+                "tags": [
+                    "Expenses"
+                ],
+                "summary": "Get Full spend and payable of my group wise ",
+                "description": "Group wise paid and payable amounts",
+                "operationId": "FetchUserGroupExp",
+                "parameters": [
+                    {
+                        "name": "user_id",
+                        "in": "path",
+                        "description": "Fetch User wise Expenses & Payables",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            }
+        },
+        "/api/expense/groups/{group_id}": {
+            "get": {
+                "tags": [
+                    "Expenses"
+                ],
+                "summary": "User wise balance details in a group",
+                "description": "User wise balance details in a group",
+                "operationId": "FetchUserBalance",
+                "parameters": [
+                    {
+                        "name": "group_id",
+                        "in": "path",
+                        "description": "Users balance group wise",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            }
+        },
+        "/api/groups/create": {
+            "post": {
+                "tags": [
+                    "Groups"
+                ],
+                "summary": "Create new groups in the system",
+                "description": "Add a new group",
+                "operationId": "addGroup",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "name": "House Rent"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "successful operation"
+                    },
+                    "422": {
+                        "description": "Failed operation user already exist"
+                    }
+                }
+            }
+        },
+        "/api/groups/{id}": {
+            "get": {
+                "tags": [
+                    "Groups"
+                ],
+                "summary": "Get a Group Details",
+                "description": "Get group details",
+                "operationId": "FetchGroup",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Fetch the Group with its id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "successful operation"
+                    },
+                    "204": {
+                        "description": "User not found"
+                    }
+                }
+            }
+        },
+        "/api/users/create": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Create new user in the system",
+                "description": "Add a new user",
+                "operationId": "addUser",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "username": {
+                                        "type": "string"
+                                    },
+                                    "password": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "name": "Jessica Smith",
+                                    "username": "Jessica",
+                                    "password": "12345678"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "successful operation"
+                    },
+                    "422": {
+                        "description": "Failed operation user already exist"
+                    }
+                }
+            }
+        },
+        "/api/users/{id}": {
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Fetch the users from the system using ID",
+                "description": "Get user details",
+                "operationId": "FetchUser",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Fetch the user with its id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "successful operation"
+                    },
+                    "204": {
+                        "description": "User not found"
+                    }
+                }
+            }
+        },
+        "/api/usergroups/create": {
+            "post": {
+                "tags": [
+                    "Add User to Group"
+                ],
+                "summary": "Assign a user to a group",
+                "description": "Add a user to a group",
+                "operationId": "addUserToGroup",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "user_id": {
+                                        "type": "string"
+                                    },
+                                    "group_id": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "user_id": "2",
+                                    "group_id": "1"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "successful operation"
+                    },
+                    "422": {
+                        "description": "Failed operation user already exist"
+                    }
+                }
+            }
+        }
+    }
+}
