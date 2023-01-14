@@ -47,7 +47,7 @@
                         "description": "successful operation"
                     },
                     "422": {
-                        "description": "Failed operation user already exist"
+                        "description": "The expense creation failed"
                     }
                 }
             }
@@ -310,11 +310,11 @@
                     }
                 },
                 "responses": {
-                    "201": {
+                    "200": {
                         "description": "successful operation"
                     },
                     "422": {
-                        "description": "Failed operation user already exist"
+                        "description": "Invalid User or Group !"
                     }
                 }
             }

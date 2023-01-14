@@ -51,6 +51,10 @@ DB   : splitwise
 User : root
 Pass : root
 
+Generate Documentation From code base
+
+`docker-compose run --rm artisan swagger-lume:generate`
+
 ## PHPUnit Test
 
 `docker-compose run --rm php vendor/bin/phpunit`

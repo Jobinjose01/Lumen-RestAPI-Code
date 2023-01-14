@@ -51,7 +51,7 @@ class UserGroupsController extends Controller
      *     ),
      *     @OA\Response(
      *         response=422,
-     *         description="Failed operation user already exist"
+     *         description="Invalid User or Group !"
      *     ),
      * )
      */
@@ -63,7 +63,7 @@ class UserGroupsController extends Controller
         if ($validation->fails()) {
             
             $response_code = 422;
-            $response = ResponseHelper::failedResponse("The user can't assign to the group or already assigned", $response_code , $validation->errors());
+            $response = ResponseHelper::failedResponse("Invalid User or Group !", $response_code , $validation->errors());
 
         }else{
              

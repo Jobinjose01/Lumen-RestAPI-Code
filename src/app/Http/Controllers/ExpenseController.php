@@ -86,7 +86,7 @@ class ExpenseController extends Controller
      *     ),
      *     @OA\Response(
      *         response=422,
-     *         description="Failed operation user already exist"
+     *         description="The expense creation failed"
      *     ),
      * )
      */

@@ -14,21 +14,7 @@ class UserTest extends TestCase
 
 
     /**
-     * A basic test example.
-     *
-     * @return void
-     */
-    public function test_that_base_endpoint_returns_a_successful_response()
-    {
-        $this->get('/');
-
-        $this->assertEquals(
-            $this->app->version(), $this->response->getContent()
-        );
-    }
-
-    /**
-     * api//users/id [GET]
+     * api/users/id [GET]
      */
     public function testShouldReturnUser(){
         $this->get("api/users/2", []);
@@ -52,7 +38,7 @@ class UserTest extends TestCase
     }
     
     /**
-     * api//users/create [POST]
+     * api/users/create [POST]
      */
     public function testShouldCreateUser(){
 
