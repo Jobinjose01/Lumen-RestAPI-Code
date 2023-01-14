@@ -33,32 +33,28 @@ Run the below commands from `project_folder/src`
 
 ## Users Available
 
-`admin` is the admin user.
 
-Normal users are `john`, `jane`, `ronald`,`sam`,`susie`
+users are `john`, `jane`, `ronald`,`sam`,`susie`
 
 All users default password is  `123456`
 
-## Access URL
+## API Access URL
 
-[http://localhost:81/index.html](http://localhost:81/index.html)
+[API Documentation](http://localhost:81/api/documentation)
 
 Database can be access using the below link
 
-[http://localhost:81/db.php](http://localhost:81/index.html)
+[DataBase](http://localhost:81/index.html)
 
 Host : mysql
-DB   : ticket_reservation
+DB   : splitwise
 User : root
 Pass : root
 
-If you want to change the port that is running on docker feel free to change that in the docker yml file , remember to change the `.env` CROSS_ORIGIN param accordingly.
-
-Login with admin details and create the trips , 10 cities already seeded so it can be available in the admin login.
 
 ## Front End
 
-Front end of the application is built with `Angular` the source code can be found in the `front_end` folder.
+Front end of the appliation is not developed  , but the API documentation is done with Swagger Package so you can try out all the from that.
 
 ## Access The CLI
 
@@ -74,7 +70,6 @@ root@containerID:/# mysql -u root -p
 ## Technology stack
 
 PHP - 8.1.4 ([Lumen Framework](https://lumen.laravel.com/docs/9.x)),
-Angular - 12.1.1,
 MySQL - 5.7.9
 
 

@@ -201,8 +201,8 @@
                     "201": {
                         "description": "successful operation"
                     },
-                    "204": {
-                        "description": "User not found"
+                    "404": {
+                        "description": "not found"
                     }
                 }
             }
@@ -274,8 +274,8 @@
                     "201": {
                         "description": "successful operation"
                     },
-                    "204": {
-                        "description": "User not found"
+                    "404": {
+                        "description": "not found"
                     }
                 }
             }
