@@ -44,6 +44,10 @@ First two users are assigned to the first group as well
 
 [API Documentation](http://localhost:81/api/documentation)
 
+Generate Documentation From code base
+
+`docker-compose run --rm artisan swagger-lume:generate`
+
 ## MYSQL Database 
 
 Database can be access using the below link
@@ -55,9 +59,7 @@ DB   : splitwise
 User : root
 Pass : root
 
-Generate Documentation From code base
 
-`docker-compose run --rm artisan swagger-lume:generate`
 
 ## PHPUnit Test
 
