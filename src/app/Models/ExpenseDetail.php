@@ -18,14 +18,4 @@ class ExpenseDetail extends Model
         return $this->belongsTo(Expense::class,'id','expense_id');
     }
 
-    public function getCreatedAtAttribute($value){
-
-        return date("d-M-Y",strtotime($value));
-    }
-
-    public function getUpdatedAtAttribute($value){
-
-        return date("d-M-Y",strtotime($value));
-    }
-
 }

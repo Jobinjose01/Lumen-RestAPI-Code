@@ -102,7 +102,27 @@ class UserTest extends TestCase
      */
     public function testShouldAssignUser(){
 
-        $this->post("api/usergroups/create",['user_id' => 1, 'group_id' => 2]);
+        $this->post("api/usergroups/create",['user_id' => 2, 'group_id' => 2]);
+        $this->seeStatusCode(200);
+        $this->seeJsonStructure(
+            ['data' =>
+                [
+                    'id',
+                    'user_id',
+                    'group_id',
+                    'created_at',
+                    'updated_at',
+                ]
+            ]    
+        );
+    }
+
+    /**
+     * api/usergroups/create [POST]
+     */
+    public function testShouldAssignExistUser(){
+
+        $this->post("api/usergroups/create",['user_id' => 1, 'group_id' => 1]);
         $this->seeStatusCode(200);
         $this->seeJsonStructure(
             ['data' =>

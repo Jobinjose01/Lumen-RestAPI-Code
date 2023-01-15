@@ -22,7 +22,7 @@ class GroupSeeder extends Seeder
        
 
         foreach ($groups as $name) {
-            $data[] = ['name' => $name, 'status' => '1', 'created_at' => date('Y-m-d h:i:s')];
+            $data[] = ['name' => $name, 'status' => '1', 'created_at' => date('Y-m-d h:i:s'), 'updated_at' => date('Y-m-d h:i:s')];
         }
 
        

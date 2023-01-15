@@ -40,13 +40,15 @@ The Groups are  `House Rent`, `Tour Club`, `Weekend Party`
 
 First two users are assigned to the first group as well
 
-## Access URL
+## Swagger API
 
 [API Documentation](http://localhost:81/api/documentation)
 
+## MYSQL Database 
+
 Database can be access using the below link
 
-[DataBase](http://localhost:81/index.html)
+[DataBase](http://localhost:81/db.php)
 
 Host : mysql
 DB   : splitwise
@@ -60,6 +62,12 @@ Generate Documentation From code base
 ## PHPUnit Test
 
 `docker-compose run --rm php vendor/bin/phpunit`
+
+## Code Coverage Reports
+
+Can access the code coverage [report](http://localhost:81/coverage/) and [Graph](http://localhost:81/coverage/dashboard.html)
+
+`docker-compose run --rm php vendor/bin/phpunit --coverage-html public/coverage/`
 
 ## Front End
 

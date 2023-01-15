@@ -26,10 +26,6 @@ class Expense extends Model
         return $this->hasMany(ExpenseDetail::class,'expense_id','id');
     }
 
-    public function Groups(){
-
-        return $this->belongsTo(Group::class,'id','group_id');
-    }
 
     public function getCreatedAtAttribute($value){
 

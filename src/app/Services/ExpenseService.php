@@ -27,12 +27,8 @@ class ExpenseService {
     {
        
         $group = Group::find($group_id);
-
-        if(!empty($group)){
-            $group_expense = $group->Expenses()->get();
-        }else{
-            $group_expense = [];
-        }
+        
+        $group_expense = $group->Expenses()->get();
 
         return  $group_expense;
 

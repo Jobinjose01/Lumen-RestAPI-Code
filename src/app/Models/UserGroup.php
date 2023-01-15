@@ -4,7 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Group;
-use App\Models\User;
 class UserGroup extends Model
 {
     
@@ -19,14 +18,6 @@ class UserGroup extends Model
         'user_id', 'group_id','created_at','updated_at'
     ];
 
-
-     /**
-     * Get the user that part of the group.
-     */
-    public function user()
-    {
-        return $this->belongsTo(User::class,'user_id');
-    }
 
     public function getCreatedAtAttribute($value){
 
