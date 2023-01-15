@@ -160,8 +160,8 @@ class UserTest extends TestCase
      */
     public function testShouldAuthendicateUser(){
 
-        $user = User::factory()->make();
-        $data = array_merge($user->toArray(),['username' => 'Jane','password' => '123456']);    
+
+        $data = ['username' => 'Jane','password' => '123456'];    
         $this->post("api/users/authendicate", $data);
         $this->seeStatusCode(200);
         $this->seeJsonStructure(
@@ -181,8 +181,7 @@ class UserTest extends TestCase
      */
     public function testShouldUserInvalidePassword(){
 
-        $user = User::factory()->make();
-        $data = array_merge($user->toArray(),['username' => 'Jane','password' => '12345678']);    
+        $data = ['username' => 'Jane','password' => '12345678'];    
         $this->post("api/users/authendicate", $data);
         $this->seeStatusCode(422);
         $this->seeJsonStructure(
@@ -200,8 +199,7 @@ class UserTest extends TestCase
      */
     public function testShouldUserInvalideLogin(){
 
-        $user = User::factory()->make();
-        $data = array_merge($user->toArray(),['username' => 'Janes','password' => '12345678']);    
+        $data = ['username' => 'Janes','password' => '12345678'];    
         $this->post("api/users/authendicate", $data);
         $this->seeStatusCode(422);
         $this->seeJsonStructure(
