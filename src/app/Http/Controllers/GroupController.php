@@ -57,7 +57,7 @@ class GroupController extends Controller
      *     ),
      *     @OA\Response(
      *         response=422,
-     *         description="Failed operation user already exist"
+     *         description="Failed operation group already exist"
      *     ),
      * )
      */
@@ -105,8 +105,8 @@ class GroupController extends Controller
      *         description="successful operation",
      *     ),
      *     @OA\Response(
-     *         response=404,
-     *         description="not found"
+     *         response=422,
+     *         description="group not found"
      *     ),
      * )
      */
@@ -117,7 +117,7 @@ class GroupController extends Controller
   
         if ($validation->fails()) {
 
-            $response_code = 200;
+            $response_code = 422;
             $response = ResponseHelper::failedResponse("Group not found!", $response_code , $validation->errors());
            
         }else{
