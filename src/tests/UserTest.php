@@ -36,6 +36,25 @@ class UserTest extends TestCase
         );
         
     }
+
+    /**
+     * api/users/id [GET]
+     */
+    public function testShouldReturnUserValidationError(){
+        $this->get("api/users/qwe", []);
+        $this->seeStatusCode(422);
+        $this->seeJsonStructure(
+                    [
+
+                        'status',
+                        'message',
+                        'code',
+                        'data'
+                    ]
+                
+        );
+        
+    }
     
     /**
      * api/users/create [POST]
@@ -62,9 +81,28 @@ class UserTest extends TestCase
     /**
      * api/users/create [POST]
      */
+    public function testShouldCreateUserValidationError(){
+
+        $data = ['name'=> 'Jeff', 'username'=> 'admin' , 'password' => Hash::make('123456')];    
+        $this->post("api/users/create", $data);
+        $this->seeStatusCode(422);
+        $this->seeJsonStructure(
+            [
+
+                'status',
+                'message',
+                'code',
+                'data'
+            ]
+        );
+    }
+
+    /**
+     * api/usergroups/create [POST]
+     */
     public function testShouldAssignUser(){
 
-        $this->post("api/usergroups/create",['user_id' => 19, 'group_id' => 2]);
+        $this->post("api/usergroups/create",['user_id' => 1, 'group_id' => 2]);
         $this->seeStatusCode(200);
         $this->seeJsonStructure(
             ['data' =>
@@ -76,6 +114,24 @@ class UserTest extends TestCase
                     'updated_at',
                 ]
             ]    
+        );
+    }
+
+    /**
+     * api/usergroups/create [POST]
+     */
+    public function testShouldAssignUserValidationError(){
+
+        $this->post("api/usergroups/create",['user_id' => 'qwe', 'group_id' => 2]);
+        $this->seeStatusCode(422);
+        $this->seeJsonStructure(
+            [
+
+                'status',
+                'message',
+                'code',
+                'data'
+            ] 
         );
     }
 

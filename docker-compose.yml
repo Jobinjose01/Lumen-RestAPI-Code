@@ -46,6 +46,9 @@ services:
     volumes:
       - ./src:/var/www/html:delegated
       - ./php/custom.ini:/usr/local/etc/php/conf.d/custom.ini
+    ports:
+      - 9000:9000
+      - 9003:9003
     networks:
       - laravel
 

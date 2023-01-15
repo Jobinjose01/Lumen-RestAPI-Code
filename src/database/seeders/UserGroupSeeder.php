@@ -4,8 +4,9 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\UserGroup;
 
-class DatabaseSeeder extends Seeder
+class UserGroupSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,9 +15,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-         $this->call(UserSeeder::class);
-         $this->call(GroupSeeder::class);
-         $this->call(UserGroupSeeder::class);
+        
+        
+        $data = ['user_id' => 1, 'group_id' => '1'];
+     
+        UserGroup::create($data);
 
+       
     }
 }

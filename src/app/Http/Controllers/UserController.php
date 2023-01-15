@@ -108,11 +108,11 @@ class UserController extends Controller
      *         )
      *     ),
      *      @OA\Response(
-     *         response=201,
+     *         response=200,
      *         description="successful operation",
      *     ),
      *     @OA\Response(
-     *         response=404,
+     *         response=422,
      *         description="not found"
      *     ),
      * )
@@ -124,7 +124,7 @@ class UserController extends Controller
   
         if ($validation->fails()) {
 
-            $response_code = 200;
+            $response_code = 422;
             $response = ResponseHelper::failedResponse("User not found!", $response_code , $validation->errors());
            
         }else{
