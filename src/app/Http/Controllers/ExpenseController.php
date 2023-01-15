@@ -134,8 +134,8 @@ class ExpenseController extends Controller
      *         description="successful operation",
      *     ),
      *     @OA\Response(
-     *         response=404,
-     *         description="not found"
+     *         response=422,
+     *         description="Group not found"
      *     ),
      * )
      */
@@ -146,7 +146,7 @@ class ExpenseController extends Controller
 
         if ($validation->fails()) {
 
-            $response_code = 200;
+            $response_code = 422;
 
             $response = ResponseHelper::failedResponse("Group not found ! ", $response_code ,[]);
       
@@ -184,8 +184,8 @@ class ExpenseController extends Controller
      *         description="successful operation",
      *     ),
      *     @OA\Response(
-     *         response=404,
-     *         description="not found"
+     *         response=422,
+     *         description="User not found"
      *     ),
      * )
      */
@@ -196,7 +196,7 @@ class ExpenseController extends Controller
   
         if ($validation->fails()) {
 
-            $response_code = 200;
+            $response_code = 422;
             $response = ResponseHelper::failedResponse("User not found ! ", $response_code ,[]);
 
         }else{
@@ -231,8 +231,8 @@ class ExpenseController extends Controller
      *         description="successful operation",
      *     ),
      *     @OA\Response(
-     *         response=404,
-     *         description="not found"
+     *         response=422,
+     *         description="Group not found"
      *     ),
      * )
      */
@@ -243,7 +243,7 @@ class ExpenseController extends Controller
 
         if ($validation->fails()) {
 
-            $response_code = 200;
+            $response_code = 422;
             $response = ResponseHelper::failedResponse("Group not found ! ", $response_code ,[]);
            
         }else{
