@@ -19,7 +19,7 @@ $router->get('/', function () use ($router) {
 
 $router->group(['prefix' => 'api'], function () use ($router) {
 
-    $router->post('authendicate',  ['uses' => 'AuthController@authendicate']);
+    $router->post('users/authendicate',  ['uses' => 'AuthController@authendicate']);
 
 });
 

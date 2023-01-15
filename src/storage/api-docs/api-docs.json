@@ -5,6 +5,45 @@
         "version": "0.1"
     },
     "paths": {
+        "/api/users/authendicate": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Authendicate a user and return the token",
+                "description": "User Authendication will return the token, for easy to keep the testing now token header implementation is not done",
+                "operationId": "authUser",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "username": {
+                                        "type": "string"
+                                    },
+                                    "password": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "username": "admin",
+                                    "password": "123456"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "422": {
+                        "description": "Invalid user login attempt"
+                    }
+                }
+            }
+        },
         "/api/expense/create": {
             "post": {
                 "tags": [

@@ -23,5 +23,13 @@ class UserValidation{
         ];
     }
 
+    public function getAuthendicate(){
+        return [
+            'username' => 'required|exists:users,username',
+            'password' => 'required|min:6'
+           
+        ];
+    }
+
 }
 

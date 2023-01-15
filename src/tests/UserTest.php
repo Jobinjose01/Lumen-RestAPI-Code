@@ -155,4 +155,63 @@ class UserTest extends TestCase
         );
     }
 
+    /**
+     * api/users/authendicate [POST]
+     */
+    public function testShouldAuthendicateUser(){
+
+        $user = User::factory()->make();
+        $data = array_merge($user->toArray(),['username' => 'Jane','password' => '123456']);    
+        $this->post("api/users/authendicate", $data);
+        $this->seeStatusCode(200);
+        $this->seeJsonStructure(
+            ['data' => [
+                "access_token",
+                "token_type",
+                "expires_in",
+                "status",
+                "message"
+                ] 
+            ]   
+        );
+    }
+
+    /**
+     * api/users/authendicate [POST]
+     */
+    public function testShouldUserInvalidePassword(){
+
+        $user = User::factory()->make();
+        $data = array_merge($user->toArray(),['username' => 'Jane','password' => '12345678']);    
+        $this->post("api/users/authendicate", $data);
+        $this->seeStatusCode(422);
+        $this->seeJsonStructure(
+            [
+                'status',
+                'message',
+                'code',
+                'data'
+            ] 
+        );
+    }
+
+     /**
+     * api/users/authendicate [POST]
+     */
+    public function testShouldUserInvalideLogin(){
+
+        $user = User::factory()->make();
+        $data = array_merge($user->toArray(),['username' => 'Janes','password' => '12345678']);    
+        $this->post("api/users/authendicate", $data);
+        $this->seeStatusCode(422);
+        $this->seeJsonStructure(
+            [
+                'status',
+                'message',
+                'code',
+                'data'
+            ] 
+        );
+    }
+
 }
