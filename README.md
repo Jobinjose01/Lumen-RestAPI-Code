@@ -31,12 +31,14 @@ Run the below commands from `project_folder/src`
 
 `docker-compose run --rm artisan db:seed` 
 
-## Users Available
+## Users & Groups Seeded are
 
 
-users are `john`, `jane`, `ronald`,`sam`,`susie`
+The Users are `admin`,`john`, `jane`, `ronald`,`sam`,`susie`
 
-All users default password is  `123456`
+The Groups are  `House Rent`, `Tour Club`, `Weekend Party`
+
+First two users are assigned to the first group as well
 
 ## Access URL
 
